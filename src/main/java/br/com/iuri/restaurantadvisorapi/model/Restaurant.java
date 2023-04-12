@@ -11,32 +11,29 @@ public class Restaurant {
     @Id
     private String id;
     private String name;
-
     @ManyToOne
-    private Type type;
-
+    private String type;
     @OneToOne
-    private Dress dress;
+    private String address;
     private String telephone;
     private String details;
     private String webSite;
     private String photos;
     private String hours;
-    private Float rating;
-    private Integer rank;
-    private Feedback feedback;
+    private String rating;
+    private String feedback;
     private String cost;
-    public Restaurant(String name, Type type, Dress dress, String telephone, String details, String webSite, String photos, String hours, Float rating, Integer rank, Feedback feedback, String cost) {
+
+    public Restaurant(String name, String type, String address, String telephone, String details, String webSite, String photos, String hours, String rating, String feedback, String cost) {
         this.name = name;
         this.type = type;
-        this.dress = dress;
+        this.address = address;
         this.telephone = telephone;
         this.details = details;
         this.webSite = webSite;
         this.photos = photos;
         this.hours = hours;
         this.rating = rating;
-        this.rank = rank;
         this.feedback = feedback;
         this.cost = cost;
     }
@@ -53,20 +50,20 @@ public class Restaurant {
         this.name = name;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public Dress getDress() {
-        return dress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDress(Dress dress) {
-        this.dress = dress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getTelephone() {
@@ -109,27 +106,19 @@ public class Restaurant {
         this.hours = hours;
     }
 
-    public Float getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
-    public Integer getRank() {
-        return rank;
-    }
-
-    public void setRank(Integer rank) {
-        this.rank = rank;
-    }
-
-    public Feedback getFeedback() {
+    public String getFeedback() {
         return feedback;
     }
 
-    public void setFeedback(Feedback feedback) {
+    public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
 
