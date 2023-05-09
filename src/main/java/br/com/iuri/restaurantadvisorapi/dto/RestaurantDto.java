@@ -1,27 +1,16 @@
-package br.com.iuri.restaurantadvisorapi.model;
+package br.com.iuri.restaurantadvisorapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
-@Document(collection = "restaurant")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Restaurant {
+public class RestaurantDto {
 
-    @Id
-    private String id;
     private String name;
-    @ManyToOne
     private String type;
-    @OneToOne
     private String address;
     private String telephone;
     private String details;
