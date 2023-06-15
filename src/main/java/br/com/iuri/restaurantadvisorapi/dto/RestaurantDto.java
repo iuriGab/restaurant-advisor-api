@@ -1,5 +1,6 @@
 package br.com.iuri.restaurantadvisorapi.dto;
 
+import br.com.iuri.restaurantadvisorapi.model.Restaurant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +12,20 @@ public class RestaurantDto {
 
     private String name;
     private String type;
-    private String address;
-    private String telephone;
-    private String details;
-    private String webSite;
     private String photos;
-    private String hours;
     private String rating;
-    private String feedback;
     private String cost;
+
+    public RestaurantDto(Restaurant restaurant){
+        this.photos = restaurant.getPhotos();
+        this.type = restaurant.getType();
+        this.name = restaurant.getName();
+        this.rating = restaurant.getRating();
+        this.cost = restaurant.getCost();
+    }
+
+    public static RestaurantDto fromRestaurant(Restaurant restaurant){
+        return new RestaurantDto(restaurant.getPhotos(), restaurant.getType(), restaurant.getName(), restaurant.getRating(), restaurant.getCost());
+    }
 
 }
