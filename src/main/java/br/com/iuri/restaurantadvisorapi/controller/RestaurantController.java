@@ -1,5 +1,6 @@
 package br.com.iuri.restaurantadvisorapi.controller;
 
+import br.com.iuri.restaurantadvisorapi.dto.RestaurantDto;
 import br.com.iuri.restaurantadvisorapi.model.Restaurant;
 import br.com.iuri.restaurantadvisorapi.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +16,18 @@ public class RestaurantController {
     RestaurantService service;
 
     @GetMapping("/findRestaurants")
-    public List<Restaurant> getRestaurantList(){return service.getRestaurantList();}
+    public List<RestaurantDto> getRestaurantList(){return service.getRestaurantList();}
 
     @GetMapping("/{id}")
-    public Restaurant getRestaurant(@PathVariable String id){return service.getRestaurant(id);}
+    public RestaurantDto getRestaurant(@PathVariable String id){return service.getRestaurant(id);}
 
     @PostMapping("/addRestaurant")
-    public String postRestaurant(@RequestBody Restaurant restaurant) throws Exception {return service.postRestaurant(restaurant);}
+    public String postRestaurant(@RequestBody RestaurantDto restaurant) throws Exception {return service.postRestaurant(restaurant);}
 
     @PutMapping("/update={id}")
-    public String putRestaurant(@PathVariable String id, @RequestBody Restaurant restaurant){return service.putRestaurant(id, restaurant);}
+    public String putRestaurant(@PathVariable String id, @RequestBody RestaurantDto restaurant){return service.putRestaurant(id, restaurant);}
 
-    @DeleteMapping("/delete={id}")
-    public String deleteRestaurant(@PathVariable String id){return service.deleteRestaurant(id);}
+    @DeleteMapping("/delete={name}")
+    public String deleteRestaurant(@PathVariable String name){return service.deleteRestaurant(name);}
 
 }
