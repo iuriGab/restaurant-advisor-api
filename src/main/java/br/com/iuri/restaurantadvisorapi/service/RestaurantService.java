@@ -38,13 +38,12 @@ public class RestaurantService {
         throw new NullPointerException("id empty");
     }
 
-    public String postRestaurant(RestaurantDto newRestaurant) throws Exception {
+    public String postRestaurant(Restaurant newRestaurant) throws Exception {
         Optional<Restaurant> restaurant = repository.findByName(newRestaurant.getName());
         if (restaurant.isPresent()){
             throw new Exception("Already exists");
         }
-        Restaurant map = modelMapper.map(newRestaurant, Restaurant.class);
-        repository.save(map);
+        repository.save(newRestaurant);
         return "Save new";
     }
 

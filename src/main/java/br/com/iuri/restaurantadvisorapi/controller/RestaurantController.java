@@ -22,7 +22,7 @@ public class RestaurantController {
     public RestaurantDto getRestaurant(@PathVariable String id){return service.getRestaurant(id);}
 
     @PostMapping("/addRestaurant")
-    public String postRestaurant(@RequestBody RestaurantDto restaurant) throws Exception {return service.postRestaurant(restaurant);}
+    public String postRestaurant(@RequestBody Restaurant restaurant) throws Exception {return service.postRestaurant(restaurant);}
 
     @PutMapping("/update={id}")
     public String putRestaurant(@PathVariable String id, @RequestBody RestaurantDto restaurant){return service.putRestaurant(id, restaurant);}
